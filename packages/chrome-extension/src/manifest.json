@@ -1,0 +1,14 @@
+{
+    "name": "React test selectors extensions",
+    "description": "Extensions for building and watching selectors for react",
+    "version": "0.1",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "devtools_page": "devtool.html",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;"
+}

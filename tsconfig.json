@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "jsx": "react",
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noErrorTruncation": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "downlevelIteration": true,
+    "lib": ["ES2015.Iterable", "ESNext", "DOM"]
+  },
+  "include": [
+    "packages/chrome-extension/src",
+    "packages/chrome-extension/test",
+    "packages/react-test-selector/src",
+    "packages/react-test-selector/test",
+    "packages/shared"
+  ]
+}

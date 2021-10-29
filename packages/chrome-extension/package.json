@@ -1,0 +1,43 @@
+{
+  "name": "chrome-extension",
+  "version": "0.2.0",
+  "description": "> TODO: description",
+  "author": "Eugene Tihonov <tihonov.ea@gmail.com>",
+  "homepage": "https://github.com/react-test-selector/react-test-selector#readme",
+  "license": "ISC",
+  "main": "lib/chrome-extension.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "storybook": "start-storybook -p 9001 -c RTSChromeExtension/.storybook"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "@babel/runtime": "^7.15.4",
+    "@babel/runtime-corejs3": "^7.15.4",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@types/react": "^17.0.31",
+    "@types/react-dom": "^17",
+    "babel-loader": "^8.2.3",
+    "chai-shallow-deep-equal": "^1.4.6",
+    "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.18.3",
+    "html-webpack-plugin": "^5.4.0",
+    "raw-loader": "^4.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "regenerator-runtime": "^0.13.9",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "@types/chrome": "^0.0.160"
+  }
+}
