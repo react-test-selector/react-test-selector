@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '14'
       - uses: Borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
+      - name: Install packages
+        run: yarn
       - name: Compile typescript
         run: yarn verify
