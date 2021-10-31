@@ -1,9 +1,13 @@
 import * as path from "path";
-import { emotionStorybookWorkaroundViaAliases } from "../../Common/EmotionStorybookWorkaroundViaAliases";
 
-const repoRootDir = path.resolve(__dirname, "..", "..");
+const repoRoot = path.resolve(__dirname, "..", "..", "..");
+const packagesDir = path.resolve(__dirname, "..", "..");
 
 export default {
+    typescript: {
+        check: false,
+        docgen: 'none'
+    },
     core: {
         builder: "webpack5",
     },
@@ -14,19 +18,28 @@ export default {
         config.resolve.extensions = [".ts", ".tsx", ".js", ".jsx"];
         config.resolve.alias = {
             ...(config.resolve.alias || {}),
-            ...emotionStorybookWorkaroundViaAliases(repoRootDir),
+            ...emotionStorybookWorkaroundViaAliases(repoRoot),
         };
+
+        // disable docgen plugin
+        config.plugins.pop();
+
         config.target = ["web", "es5"];
         config.module.rules = [];
         config.module.rules.push(
             {
                 test: /\.tsx?$/,
-                use: "babel-loader",
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        configFile: path.resolve(packagesDir, "..", "babel.config.js"),
+                    }
+                },
                 include: [
-                    path.resolve(repoRootDir, "RTSChromeExtension", "src"),
-                    path.resolve(repoRootDir, "RTSChromeExtension", ".storybook"),
-                    path.resolve(repoRootDir, "ReactTestSelector", "src"),
-                    path.resolve(repoRootDir, "Common"),
+                    path.resolve(packagesDir, "chrome-extension", "src"),
+                    path.resolve(packagesDir, "chrome-extension", ".storybook"),
+                    path.resolve(packagesDir, "react-test-selector", "src"),
+                    path.resolve(packagesDir, "shared"),
                 ],
             },
         );
@@ -34,3 +47,14 @@ export default {
         return config;
     },
 };
+
+
+export function emotionStorybookWorkaroundViaAliases(repoRootDir: string) {
+    console.log(require.resolve("@emotion/styled"));
+    console.log(require.resolve("emotion-theming"));
+    return {
+        ["@emotion/core"]: path.dirname(path.dirname(require.resolve("@emotion/react"))),
+        ["@emotion/styled"]: path.dirname(path.dirname(require.resolve("@emotion/styled"))),
+        ["emotion-theming"]: path.dirname(path.dirname(require.resolve("@emotion/react"))),
+    };
+}

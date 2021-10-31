@@ -11,7 +11,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

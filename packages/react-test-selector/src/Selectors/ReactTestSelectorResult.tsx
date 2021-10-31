@@ -39,14 +39,6 @@ export class ReactTestSelectorResult implements IReactTestSelectorResult {
         return this.nodesIterableFactory();
     }
 
-    public printNodes(): void {
-        const nodes = this.nodesIterableFactory();
-        for (const node of nodes) {
-            // eslint-disable-next-line no-console
-            console.log(node);
-        }
-    }
-
     public querySelector(selectorString: string): IReactTestSelectorResult {
         const selector = createReactSelectorFromQueryString(selectorString);
         return selector.execute(this);
