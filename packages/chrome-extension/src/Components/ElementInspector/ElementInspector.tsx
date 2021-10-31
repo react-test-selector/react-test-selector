@@ -50,7 +50,8 @@ export function ElementInspector(props: ElementInspectorProps): JSX.Element {
 
     const [currentElement, setCurrentElement] = React.useState<undefined | ElementRenderInfo>(props.elementInfo);
 
-    // @ts-ignore
+    let itemProps: any = currentElement?.serializedProps ?? {};
+
     return (
         <Root>
             <Global styles={[globalStyles]} />
@@ -87,7 +88,7 @@ export function ElementInspector(props: ElementInspectorProps): JSX.Element {
                         <TopPanelTab current>Props</TopPanelTab>
                     </TopPanel>
                     <PropertiesPanelContent>
-                        {Object.entries(currentElement?.serializedProps ?? {}).map(([x, y]) => (
+                        {Object.entries(itemProps).map(([x, y]) => (
                             <PropsItem>
                                 <PropName>{x}:</PropName>
                                 <PropValue>{JSON.stringify(y, undefined, "  ")}</PropValue>

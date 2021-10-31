@@ -50,34 +50,37 @@ export function SelectorWatchPanel(props: SelectorWatchPanelProps): JSX.Element 
             />
             <Results>
                 <Count>Found {props.foundElements.length} items</Count>
-                {props.foundElements.slice(0, 20).map((item, index) => (
-                    <ResultItem key={index}>
-                        <ElementName>{renderElementType(item.elementType)}</ElementName>
-                        <ResultItemProps>
-                            {Object.entries(item?.serializedProps ?? {})
-                                .filter(([x]) => x !== "children")
-                                .map(([x, y]) => (
-                                    <PropsItem key={x}>
-                                        <PropName>{x}=</PropName>
-                                        <PropValue>
-                                            {"{"}
-                                            {JSON.stringify(y, (name, value) => {
-                                                if (!name) {
+                {props.foundElements.slice(0, 20).map((item, index) => {
+                    let itemProps: any = item?.serializedProps ?? {};
+                    return (
+                        <ResultItem key={index}>
+                            <ElementName>{renderElementType(item.elementType)}</ElementName>
+                            <ResultItemProps>
+                                {Object.entries(itemProps)
+                                    .filter(([x]) => x !== "children")
+                                    .map(([x, y]) => (
+                                        <PropsItem key={x}>
+                                            <PropName>{x}=</PropName>
+                                            <PropValue>
+                                                {"{"}
+                                                {JSON.stringify(y, (name, value) => {
+                                                    if (!name) {
+                                                        return value;
+                                                    }
+                                                    if (typeof value === "string" && value.length > 10) {
+                                                        return "...";
+                                                    }
                                                     return value;
-                                                }
-                                                if (typeof value === "string" && value.length > 10) {
-                                                    return "...";
-                                                }
-                                                return value;
-                                            })}
-                                            {"}"}
-                                        </PropValue>
-                                    </PropsItem>
-                                ))}
-                        </ResultItemProps>
-                        <div>{"/>"}</div>
-                    </ResultItem>
-                ))}
+                                                })}
+                                                {"}"}
+                                            </PropValue>
+                                        </PropsItem>
+                                    ))}
+                            </ResultItemProps>
+                            <div>{"/>"}</div>
+                        </ResultItem>
+                    );
+                })}
             </Results>
         </Root>
     );

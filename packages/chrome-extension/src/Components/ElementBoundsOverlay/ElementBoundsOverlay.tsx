@@ -1,9 +1,7 @@
 import * as React from "react";
-import { useMemo } from "react";
-
-import { ElementBounds, ElementShortInfo } from "../../PageScript/PageScriptEntryPoint";
 
 import { HorizontalLine, InnerOverlay, OuterOverlay, VerticalLine } from "./ElementBoundsOverlay.styles";
+import { ElementBounds } from "../../ContentScript/ContentScriptProtocol";
 
 interface ElementBoundsOverlayProps {
     elementBounds: ElementBounds;

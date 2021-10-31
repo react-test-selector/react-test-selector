@@ -19,9 +19,12 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "downlevelIteration": true,
+    "target": "ESNext",
+    "moduleResolution": "Node",
     "lib": ["ES2015.Iterable", "ESNext", "DOM"]
   },
   "include": [
+    "packages/chrome-extension/.storybook",
     "packages/chrome-extension/src",
     "packages/chrome-extension/test",
     "packages/react-test-selector/src",
