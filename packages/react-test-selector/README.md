@@ -87,4 +87,8 @@ public class RTSTest
 }
 ```
 
+## Альтернативы
 
+* [resq](https://github.com/baruchvlz/resq)
+* [testcafe-react-selectors](https://github.com/DevExpress/testcafe-react-selectors)
+* [Playwright react-selectors](https://playwright.dev/docs/selectors#react-selectors)
