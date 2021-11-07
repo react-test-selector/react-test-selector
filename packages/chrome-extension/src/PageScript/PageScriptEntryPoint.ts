@@ -1,9 +1,9 @@
 import "core-js/proposals/iterator-helpers";
-import type { FiberNode } from "../../../react-test-selector/src/React16/React16FiberUtils";
+import type { FiberNode } from "../../../react-test-selector/src/ReactFiber/ReactFiberUtils";
 import {
     findCurrentFiberUsingSlowPath,
     findFirstDomElement,
-} from "../../../react-test-selector/src/React17/React17FiberUtils";
+} from "../../../react-test-selector/src/ReactFiber/ReactFiberUtils";
 import { RootReactTestSelectorResult } from "../../../react-test-selector/src/Selectors/RootReactTestSelectorResult";
 import {
     ContentScriptClientForPage,

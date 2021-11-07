@@ -1,3 +1,14 @@
++ Поднять примеры на javascript / C# : selenium / puppeteer
++ Написать примеры на javascript / C# : selenium / puppeteer
++ В документации написать доки на компоненты: querySelector
++ В документации написать доки на компоненты: QuerySelectorResult
+
++ Лендинг: добавить ссылку на экстеншин
++ Лендинг - переделать
++ Каналы: slack, telegram
+
+=============
+
 - Документация по либе runtime:
     - функция querySelector
         - синтаксис

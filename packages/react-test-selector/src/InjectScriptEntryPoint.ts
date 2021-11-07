@@ -1,8 +1,8 @@
-import { IReactTestSelectorResult } from "./Selectors/IReactTestSelectorResult";
+import { IQuerySelectorResult } from "./Selectors/IQuerySelectorResult";
 import { RootReactTestSelectorResult } from "./Selectors/RootReactTestSelectorResult";
 
 interface ReactTestSelectorGlobal {
-    querySelector(selectorString: string): IReactTestSelectorResult;
+    querySelector(selectorString: string): IQuerySelectorResult;
 }
 
 declare global {

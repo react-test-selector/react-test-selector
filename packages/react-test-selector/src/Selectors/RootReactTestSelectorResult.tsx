@@ -1,8 +1,8 @@
-import { FiberNode, FiberRootNode, findReactRoot } from "../React17/React17FiberUtils";
+import { FiberNode, FiberRootNode, findReactRoot } from "../ReactFiber/ReactFiberUtils";
 
-import { ReactTestSelectorResult } from "./ReactTestSelectorResult";
+import { QuerySelectorResult } from "./QuerySelectorResult";
 
-export class RootReactTestSelectorResult extends ReactTestSelectorResult {
+export class RootReactTestSelectorResult extends QuerySelectorResult {
     public constructor() {
         super(function (): Iterable<FiberNode> {
             const root = RootReactTestSelectorResult.findReactRoot();

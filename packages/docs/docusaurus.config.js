@@ -6,7 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Test Selector',
-  tagline: 'CSS селеторы только для React-компонентов',
+  tagline: 'Инструмент E2E-тестирования для поиска React-компонентов',
+
   url: 'https://react-test-selector.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -34,10 +35,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: true,
-      },
       navbar: {
         title: 'React Test Selector',
         logo: {
@@ -45,12 +42,17 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'intro',
-          //   position: 'left',
-          //   label: 'Документация',
-          // },
+          {
+            type: 'doc',
+            docId: 'GettingStarted',
+            position: 'left',
+            label: 'Документация',
+          },
+          {
+            href: 'https://www.npmjs.com/package/react-test-selector',
+            label: 'npm',
+            position: 'right',
+          },
           {
             href: 'https://github.com/react-test-selector/react-test-selector/tree/main/packages/react-test-selector',
             label: 'GitHub',
@@ -62,42 +64,50 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Документация',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Быстрый старт',
+                to: '/docs/GettingStarted',
+              },
+              {
+                label: 'Примеры',
+                to: '/docs/Examples/Examples',
+              },
+              {
+                label: 'Справочник API',
+                to: '/docs/ApiReference/QuerySelector',
               },
             ],
           },
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     {
-          //       label: 'Stack Overflow',
-          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-          //     },
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'Twitter',
-          //       href: 'https://twitter.com/docusaurus',
-          //     },
-          //   ],
-          // },
-          // {
-          //   title: 'More',
-          //   items: [
-          //     {
-          //       label: 'GitHub',
-          //       href: 'https://github.com/react-test-selector',
-          //     },
-          //   ],
-          // },
+          {
+            title: 'Поддержка',
+            items: [
+              {
+                label: 'Slack',
+                href: 'https://join.slack.com/t/react-test-selector/shared_invite/zt-yespj9v8-vjWI45lJ7ln4iHMgJQE3rw',
+              },
+              {
+                label: 'Telegram',
+                href: 'https://t.me/joinchat/KzF8Y4ds2i5kMDU6',
+              },
+            ],
+          },
+          {
+            title: 'Код',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/react-test-selector',
+              },
+              {
+                label: 'npm',
+                href: 'https://www.npmjs.com/package/react-test-selector',
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()}`,
+        copyright: `Copyright © ${new Date().getFullYear()}. Eugene Tihonov`,
       },
       prism: {
         theme: lightCodeTheme,

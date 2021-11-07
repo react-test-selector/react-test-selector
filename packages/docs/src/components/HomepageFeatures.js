@@ -14,13 +14,21 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Привычный синтаксис и обратная совемстимость',
-    Svg: require('../../static/img/css.svg').default,
+    title: 'Привычный синтаксис',
+    Svg: (
+      () => <svg
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+        className={styles.cssFeatureSvg}>
+        <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10">
+          <path d="M1.5.5L2.684 14 8 15.5l5.314-1.499L14.5.5z"/>
+          <path d="M4.5 3.5h7L11 11l-3 1-3-1v-1M11.23 7.5H4.62"/>
+        </g>
+      </svg>
+    ),
     description: (
       <>
-        Селекторы по дереву React-компонентов можно писать в привычном виде с синтаксисом
-        css-селекторов. Дерево react-компонентов является надмножеством dom-дерева, поэтому
-        будут работать старые селекторы.
+        Селекторы по дереву React-компонентов построены на базе привычного синтаксиса
+        css-селекторов.
       </>
     ),
   },
@@ -30,9 +38,10 @@ const FeatureList = [
     description: (
       <>
         Расширение инструментов разрабочика для Google Chrome для упрощения отладки и написания селекторов.
-        <br />
-        <br />
-        Coming soon.
+        <br/>
+        <br/>
+        <a href="https://chrome.google.com/webstore/detail/react-test-selectors-exte/idkhibimkohnbdblccblmbjooacpbieg"
+           target="_blank">Открыть в chrome web store</a>.
       </>
     ),
   },
@@ -42,7 +51,7 @@ function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <Svg className={styles.featureSvg} alt={title}/>
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

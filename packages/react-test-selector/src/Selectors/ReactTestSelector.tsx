@@ -1,7 +1,7 @@
-import { FiberNode, flattenFiberNodes, ReactSelectorToken } from "../React17/React17FiberUtils";
+import { FiberNode, flattenFiberNodes, ReactSelectorToken } from "../ReactFiber/ReactFiberUtils";
 
-import { IReactTestSelectorResult } from "./IReactTestSelectorResult";
-import { isReactSelectorResult, ReactTestSelectorResult } from "./ReactTestSelectorResult";
+import { IQuerySelectorResult } from "./IQuerySelectorResult";
+import { isQuerySelectorResult, QuerySelectorResult } from "./QuerySelectorResult";
 import { filter, flatMap } from "../../../shared/IterUtils";
 import { reject } from "../../../shared/TypingUtils";
 
@@ -12,10 +12,10 @@ export class ReactTestSelector {
         this.tokens = tokens;
     }
 
-    public execute(startNode: IReactTestSelectorResult | FiberNode): ReactTestSelectorResult {
-        return new ReactTestSelectorResult(() => {
+    public execute(startNode: IQuerySelectorResult | FiberNode): QuerySelectorResult {
+        return new QuerySelectorResult(() => {
             let startNodes: Iterable<FiberNode>;
-            if (isReactSelectorResult(startNode)) {
+            if (isQuerySelectorResult(startNode)) {
                 startNodes = startNode.iterateNodes();
             } else {
                 startNodes = [startNode];

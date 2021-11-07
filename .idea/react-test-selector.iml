@@ -6,6 +6,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/packages/react-test-selector/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/chrome-extension/build-tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/chrome-extension/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/docs/.docusaurus" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/docs/.yarn" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/docs/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

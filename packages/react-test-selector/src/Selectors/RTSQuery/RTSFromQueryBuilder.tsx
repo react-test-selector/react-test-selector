@@ -1,4 +1,4 @@
-import { FiberNode, FiberNodeTag, ReactSelectorToken } from "../../React17/React17FiberUtils";
+import { FiberNode, FiberNodeTag, ReactSelectorToken } from "../../ReactFiber/ReactFiberUtils";
 import { ReactTestSelector } from "../ReactTestSelector";
 
 import {

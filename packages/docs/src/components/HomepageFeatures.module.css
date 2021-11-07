@@ -10,3 +10,19 @@
   width: 200px;
   padding: 40px;
 }
+
+.featureSvg path {
+  fill: currentColor;
+}
+
+.cssFeatureSvg {
+  height: 200px;
+  width: 200px;
+  padding: 40px;
+
+}
+
+.cssFeatureSvg path {
+  stroke: currentColor;
+}
+

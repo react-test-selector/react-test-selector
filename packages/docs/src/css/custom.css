@@ -14,6 +14,14 @@
   --ifm-color-primary-lighter: #A8DADC;
   --ifm-color-primary-lightest: #F1FAEE;
   --ifm-code-font-size: 95%;
+  --ifm-footer-link-hover-color: #ffffff;
+}
+
+html[data-theme='dark'] {
+  --ifm-heading-color: #ffffff;
+  --ifm-font-color-base-inverse: #ffffff;
+  --ifm-link-color: #ffffff;
+  --ifm-footer-link-hover-color: #ffffff;
 }
 
 .docusaurus-highlight-code-line {
