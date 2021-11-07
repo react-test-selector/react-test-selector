@@ -1,11 +1,11 @@
-# `chrome-extension`
+# Chrome extensions for react-test-selector sources
 
-> TODO: description
+[Chrome web store](https://chrome.google.com/webstore/detail/react-test-selectors-exte/idkhibimkohnbdblccblmbjooacpbieg)
 
-## Usage
+Extensions for building and watching selectors for react
 
-```
-const chromeExtension = require('chrome-extension');
+Adds tools for building and watching selectors for react-test-selectors library.
 
-// TODO: DEMONSTRATE API
-```
+It allow to write selector and highlight all components matching this selector. 
+Also it allows inspect React components on a page and view extended information for creating test selectors.
+
