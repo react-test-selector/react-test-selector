@@ -6,8 +6,8 @@ sidebar_position: 1
 
 ## Основа
 
-Основу библиотеки составляет функуия [`rts.querySelector`](/docs/ApiReference/QuerySelector), которая является аналогом `window.querySelector()`,
-но искать React-компоненты. Добавить фукнцию можно путём выполнения скрипта react-test-selector.js в брауере. Если вы используете npm, то можно
+Основу библиотеки составляет функция [`rts.querySelector`](/docs/ApiReference/QuerySelector), которая является аналогом `window.querySelector()`,
+но позволяет искать React-компоненты. Добавить фукнцию можно путём выполнения скрипта react-test-selector.js в брауере. Если вы используете npm, то можно
 установить пакет [react-test-selector](https://www.npmjs.com/package/react-test-selector):
 
 ```
@@ -20,23 +20,23 @@ npm install --save-dev react-test-selector
 
 ## Пример подключения С# + Selenium
 
-Рассмотри вариант использования на С#, используя Selenium для усправления браузером. Примеры на других языках можно [найти в документации](/docs/Examples/Examples).
+Рассмотрим вариант тестов на языке С# с использованием Selenium для усправления браузером. Примеры на других языках можно [найти в документации](/docs/Examples/Examples).
 
-Добавить файл в проект со [страницы релиза](https://github.com/react-test-selector/react-test-selector/releases)
+Добавим файл `react-test-selector.js` в проект со [страницы релиза](https://github.com/react-test-selector/react-test-selector/releases).
 
 Напишем тест с примером использования. Приложение, которое тестируется:
 [react-test-selector.github.io/example-application-for-docs/](https://react-test-selector.github.io/example-application-for-docs/)
-состоит из двух полей ввода и теста.
+состоит из двух полей ввода и текста.
 
-Чтобы добавить функцию в браузер ввыполним скприпт сразу после загрузки станицы:
-```
+Чтобы добавить функцию в браузер, выполним скрипт сразу после загрузки станицы:
+```cs
 driver.ExecuteScript(
     await File.ReadAllTextAsync(@"<path-to-script>\react-test-selector.js")
 );
 ```
 
 И воспользуемся результатами. Чтобы найти поле ввода:
-```
+```cs
 var inputNode = driver.ExecuteScript(
     "return rts.querySelector('Input').at(0).getDomElement()"
 ) as WebElement;
@@ -44,7 +44,7 @@ var inputNode = driver.ExecuteScript(
 
 и текст:
 
-```
+```cs
 var textNode = driver.ExecuteScript(
     "return rts.querySelector('InputValueContent').at(0).getDomElement()"
 ) as WebElement;
@@ -69,9 +69,9 @@ public class RTSTest
 	{
 		using var driver = new RemoteWebDriver(
 		    new Uri("http://127.0.0.1:4444/wd/hub"), new ChromeOptions()
-        );
+		);
 		driver.Navigate()
-		    .GoToUrl("https://react-test-selector.github.io/example-application-for-docs/");
+			.GoToUrl("https://react-test-selector.github.io/example-application-for-docs/");
 		driver.ExecuteScript(
 			await File.ReadAllTextAsync(@"<path-to-script>\react-test-selector.js")
 		);
