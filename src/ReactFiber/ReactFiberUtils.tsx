@@ -1,6 +1,7 @@
 import { ComponentType } from "react";
 import { Predicate } from "../Utils/Funcs";
 import { concat, find } from "../Utils/IterUtils";
+import {reject} from "../Utils/TypingUtils";
 
 
 export type ReactSelectorToken = Predicate<FiberNode>;
@@ -100,7 +101,14 @@ export interface FiberNode {
     updateQueue: unknown;
 }
 
-export function findReactRoot(): undefined | FiberRootNode {
+export function findReactRoot(rootCssSelector?: string): undefined | FiberRootNode {
+    if (rootCssSelector) {
+        const rootElement = document.querySelector(rootCssSelector);
+
+        // @ts-ignore
+        return rootElement?.["_reactRootContainer"]?.["_internalRoot"]
+            ?? reject(`Root container with selector ${rootCssSelector} not found`);
+    }
     // @ts-ignore
     const treeWalker = document.createTreeWalker(document, NodeFilter.SHOW_ELEMENT, null, false);
     while (treeWalker.nextNode()) {

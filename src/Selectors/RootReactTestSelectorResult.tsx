@@ -3,9 +3,9 @@ import { FiberNode, FiberRootNode, findReactRoot } from "../ReactFiber/ReactFibe
 import { QuerySelectorResult } from "./QuerySelectorResult";
 
 export class RootReactTestSelectorResult extends QuerySelectorResult {
-    public constructor() {
+    public constructor(rootCssSelector?: string) {
         super(function (): Iterable<FiberNode> {
-            const root = RootReactTestSelectorResult.findReactRoot();
+            const root = RootReactTestSelectorResult.findReactRoot(rootCssSelector);
             if (root == undefined) {
                 return [];
             }
@@ -13,7 +13,7 @@ export class RootReactTestSelectorResult extends QuerySelectorResult {
         });
     }
 
-    public static findReactRoot(): undefined | FiberRootNode {
-        return findReactRoot();
+    public static findReactRoot(rootCssSelector?: string): undefined | FiberRootNode {
+        return findReactRoot(rootCssSelector);
     }
 }
