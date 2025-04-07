@@ -12,5 +12,5 @@ declare global {
 }
 
 window.rts = {
-    querySelector: (selectorString: string, rootCssSelector?: string) => new RootReactTestSelectorResult(rootCssSelector).querySelector(selectorString),
+    querySelector: (selectorString: string) => new RootReactTestSelectorResult().querySelector(selectorString),
 };

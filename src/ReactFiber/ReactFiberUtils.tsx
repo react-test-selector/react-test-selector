@@ -101,24 +101,25 @@ export interface FiberNode {
     updateQueue: unknown;
 }
 
-export function findReactRoot(rootCssSelector?: string): undefined | FiberRootNode {
-    if (rootCssSelector) {
-        const rootElement = document.querySelector(rootCssSelector);
-
-        // @ts-ignore
-        return rootElement?.["_reactRootContainer"]?.["_internalRoot"]
-            ?? reject(`Root container with selector ${rootCssSelector} not found`);
-    }
+export function findReactRoot(): FiberRootNode[] {
+    const result: FiberRootNode[] = [];
     // @ts-ignore
     const treeWalker = document.createTreeWalker(document, NodeFilter.SHOW_ELEMENT, null, false);
     while (treeWalker.nextNode()) {
         if (treeWalker.currentNode.hasOwnProperty("_reactRootContainer")) {
             // @ts-ignore
             // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-            return treeWalker.currentNode?.["_reactRootContainer"]?.["_internalRoot"];
+            const internalRoot = treeWalker.currentNode?.["_reactRootContainer"]?.["_internalRoot"];
+            if (internalRoot) {
+                result.push(internalRoot);
+            }
+            
+            // Skip the subtree of the current node and move to the next sibling
+            // because a React root will not exist in the current subtree
+            treeWalker.nextSibling();
         }
     }
-    return undefined;
+    return result;
 }
 
 export function findFirstDomElement(fiber: undefined | FiberNode): Element | undefined {
