@@ -1,6 +1,6 @@
 {
   "name": "react-test-selector",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "CSS like selector across react component tree",
   "author": "Eugene Tihonov <tihonov.ea@gmail.com>",
   "homepage": "https://react-test-selector.github.io",
