@@ -24,11 +24,6 @@
     "lib": ["ES2015.Iterable", "ESNext", "DOM"]
   },
   "include": [
-    "packages/chrome-extension/.storybook",
-    "packages/chrome-extension/src",
-    "packages/chrome-extension/test",
-    "packages/react-test-selector/src",
-    "packages/react-test-selector/test",
-    "packages/shared"
+    "src"
   ]
 }

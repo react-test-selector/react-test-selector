@@ -1,13 +1,8 @@
 module.exports = {
     presets: [
-      ["@babel/env", {
-        targets: { browsers: "> 0%" },
-      }],
-      "@babel/react",
-      "@emotion/babel-preset-css-prop"
+      ["@babel/env", { targets: { browsers: "> 0%" }, }]
     ],
     plugins: [
-      "@emotion",
       [
         "@babel/plugin-transform-runtime",
         {
@@ -30,11 +25,5 @@ module.exports = {
                 ["@babel/plugin-proposal-nullish-coalescing-operator"],
             ],
         },
-    ],
-    "env": {
-      "rts-chrome": {
-        sourceMaps: "both",
-        presets: [["@babel/env", { targets: { browsers: "last 2 Chrome versions" } }], "@babel/react"],
-      },
-    }
+    ]
 };
