@@ -113,10 +113,6 @@ export function findReactRoot(): FiberRootNode[] {
             if (internalRoot) {
                 result.push(internalRoot);
             }
-            
-            // Skip the subtree of the current node and move to the next sibling
-            // because a React root will not exist in the current subtree
-            treeWalker.nextSibling();
         }
     }
     return result;
