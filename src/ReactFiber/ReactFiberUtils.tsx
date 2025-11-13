@@ -1,7 +1,6 @@
 import { ComponentType } from "react";
 import { Predicate } from "../Utils/Funcs";
 import { concat, find } from "../Utils/IterUtils";
-import {reject} from "../Utils/TypingUtils";
 
 
 export type ReactSelectorToken = Predicate<FiberNode>;
@@ -106,12 +105,14 @@ export function findReactRoot(): FiberRootNode[] {
     // @ts-ignore
     const treeWalker = document.createTreeWalker(document, NodeFilter.SHOW_ELEMENT, null, false);
     while (treeWalker.nextNode()) {
-        if (treeWalker.currentNode.hasOwnProperty("_reactRootContainer")) {
-            // @ts-ignore
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-            const internalRoot = treeWalker.currentNode?.["_reactRootContainer"]?.["_internalRoot"];
-            if (internalRoot) {
-                result.push(internalRoot);
+        for (const nodeKey of Object.keys(treeWalker.currentNode)) {
+            if (nodeKey.startsWith("__reactContainer$")) {
+                // @ts-ignore
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+                const internalRoot = treeWalker.currentNode?.[nodeKey]?.["stateNode"];
+                if (internalRoot) {
+                    result.push(internalRoot);
+                }
             }
         }
     }

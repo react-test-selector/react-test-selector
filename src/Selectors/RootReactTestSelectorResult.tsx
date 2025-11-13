@@ -13,11 +13,7 @@ export class RootReactTestSelectorResult extends QuerySelectorResult {
         });
     }
 
-    public static findReactRoot(): undefined | FiberRootNode {
-        return RootReactTestSelectorResult.findReactRoots()[0];
-    }
-
-    private static findReactRoots(rootCssSelector?: string): FiberRootNode[] {
+    private static findReactRoots(): FiberRootNode[] {
         return findReactRoot();
     }
 }
