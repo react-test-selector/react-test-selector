@@ -8,4 +8,5 @@ export interface IQuerySelectorResult {
     getDomElements(): Array<Element | undefined>;
     getDomElement(): Element | undefined;
     getProps(): Record<string, unknown>;
+    getState(): Record<string, unknown>;
 }

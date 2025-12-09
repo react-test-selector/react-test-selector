@@ -35,6 +35,11 @@ export class QuerySelectorResult implements IQuerySelectorResult {
         return singleFiberNode.memoizedProps ?? {};
     }
 
+    public getState(): Record<string, unknown> {
+        const singleFiberNode = single(this.iterateNodes());
+        return singleFiberNode.memoizedState ?? {};
+    }
+
     public iterateNodes(): Iterable<FiberNode> {
         return this.nodesIterableFactory();
     }
